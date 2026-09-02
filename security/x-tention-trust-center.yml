@@ -1,0 +1,78 @@
+generated: '2026-09-02'
+method: searched
+source: https://x-tention.com/en/information-security-policy-clients
+name: x-tention Information Security Policy for Clients
+trust_center:
+  dedicated_portal: false
+  note: >-
+    x-tention publishes no dedicated trust centre or compliance portal — trust.x-tention.com,
+    security.x-tention.com, /trust, /security and /compliance were probed and none resolves
+    or returns a compliance page. What it does publish is a client-facing Information
+    Security Policy page that names its certifications, their standards, and the year each
+    was first obtained. That page is the trust surface, and it is treated as such here.
+  url: https://x-tention.com/en/information-security-policy-clients
+  last_updated: '2026-04-14'
+  management_system: >-
+    x-tention Management System (xtMS), an integrated management system covering
+    information security (ISMS), data protection (DPMS) and quality (QMS), owned by
+    the executive board of x-tention group GmbH.
+certifications:
+- name: ISO/IEC 27001
+  scope: Information Security Management System (ISMS)
+  certified_since: '2011'
+  status: certified
+  evidence: https://x-tention.com/en/information-security-policy-clients
+- name: ISO/IEC 27701
+  scope: Data Protection Management System (DPMS); privacy information management
+  certified_since: '2021'
+  note: >-
+    The page states the DPMS has been certified since late 2018, and certified to
+    ISO/IEC 27701 specifically since 2021.
+  status: certified
+  evidence: https://x-tention.com/en/information-security-policy-clients
+- name: ISO 9001
+  scope: Quality Management System (QMS)
+  certified_since: '2019'
+  status: certified
+  evidence: https://x-tention.com/en/information-security-policy-clients
+regulatory:
+- name: EU GDPR
+  applies: true
+  note: >-
+    Stated as the overarching data-protection objective, with explicit reference to the
+    Art. 5 principles and to applicable national data protection legislation. x-tention
+    processes health data for hospitals, insurers and social-care providers in AT/DE/CH.
+  evidence: https://x-tention.com/en/information-security-policy-clients
+not_published:
+- SOC 2
+- PCI DSS
+- HIPAA
+- FedRAMP
+- CSA STAR
+- ISO 27017
+- ISO 27018
+note_on_absences: >-
+  These are recorded as not published, not as absent controls. x-tention is a DACH-region
+  healthcare IT provider; SOC 2, HIPAA and FedRAMP are US-market attestations that would
+  not be expected here, and no certificate registry entry or audit report is linked from
+  the public page for any certification, including the three that are named.
+certificate_artifacts:
+  published: false
+  note: >-
+    No certificate PDFs, certificate numbers, certification-body names or registry links
+    are published, so the three ISO certifications cannot be independently verified from
+    the public surface — only that x-tention asserts them.
+evidence:
+- url: https://x-tention.com/en/information-security-policy-clients
+  http_status: 200
+  fetched: '2026-09-02'
+  kind: compliance policy page
+  certifications_named:
+  - ISO/IEC 27001
+  - ISO/IEC 27701
+  - ISO 9001
+  - GDPR
+- url: https://x-tention.com/en/privacy-policy
+  http_status: 200
+  fetched: '2026-09-02'
+  kind: privacy policy

@@ -1,0 +1,111 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  Direct unauthenticated HTTP probes of every host x-tention operates that this profile
+  could identify, run 2026-09-02.
+summary: >-
+  No .well-known document is served on any x-tention host. Every path returned 404 on
+  x-tention.com and mach.health. portal.mach.health returns HTTP 200 for every path,
+  including ones that cannot exist — it is an Angular single-page application whose
+  catch-all route serves the same 62,604-byte "Loading MACH Portal" shell to every
+  request, so none of its 200s is a document and all are recorded as misses.
+hosts:
+- host: x-tention.com
+  role: corporate website (Drupal); also serves x-tention.at, x-tention.de and x-tention.ch via locale redirects
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: mach.health
+  role: MACH product site (Drupal)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: portal.mach.health
+  role: MACH Portal customer console (Angular SPA, login-gated)
+  spa_catch_all: true
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    result: miss
+    note: >-
+      HTML SPA shell, not a document. Identical 62,604-byte body returned for
+      /robots.txt, /graphql, /openapi.json and every other path probed.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    result: miss
+    note: SPA shell, same body as every other path.
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    result: miss
+    note: >-
+      SPA shell. Body is HTML, not a JSON object, and carries none of the AgentCard
+      fields, so it is not accepted as an agent card.
+control_probes:
+- host: portal.mach.health
+  path: /.apievangelist-control-probe-does-not-exist-9f2a
+  expected: 404
+  observed: 200
+  body_bytes: 62604
+  conclusion: >-
+    Confirms the catch-all. A path that cannot exist returns the same 200 shell — byte
+    for byte the same length as every /.well-known/* response from this host — so no 200
+    from portal.mach.health is evidence of a served document.
+- host: x-tention.com
+  path: /.apievangelist-control-probe-does-not-exist-9f2a
+  expected: 404
+  observed: 403
+  conclusion: >-
+    Apache refuses dot-prefixed paths at the root with 403, but the /.well-known/*
+    probes above returned genuine 404s with the site's own error page, so those
+    absences are real and not an artefact of the edge policy.
+- host: mach.health
+  path: /.apievangelist-control-probe-does-not-exist-9f2a
+  expected: 404
+  observed: 403
+  conclusion: Same edge behaviour as x-tention.com; the /.well-known/* 404s are genuine.
+pointer_emitted: false
+pointer_note: >-
+  No WellKnown or SecurityTxt pointer is wired into apis.yml, because not one path
+  returned a real document. This file records a verified absence, which is data — but a
+  pointer would assert that x-tention serves a .well-known surface, and it does not.

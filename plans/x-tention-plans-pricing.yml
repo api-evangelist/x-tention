@@ -1,0 +1,51 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Full read of the x-tention.com sitemap (57 URLs) and the mach.health sitemap (21 URLs),
+  including every product, focus-topic and component page, 2026-09-02.
+plan_count: 0
+plans: []
+pricing_model: contact-sales
+public_pricing: false
+finding: >-
+  x-tention publishes no pricing of any kind. There is no pricing page, no plans page, no
+  tier comparison, no rate card and no free tier or trial, on either x-tention.com or
+  mach.health. Neither sitemap contains a /pricing, /plans or /packages URL. Every
+  commercial call to action on the site is a contact form, a demo booking, or a named
+  salesperson with a direct phone number and email — for example the MACH Portal page,
+  which closes with "Reach out to schedule a demo", and the Interoperability Platform
+  page, which names Thomas Schneider, Division Manager Product Management, as the
+  personal contact.
+enterprise_only: true
+note: >-
+  This is an expected posture for a healthcare integration vendor selling licensed
+  platform software plus managed services into hospitals, health insurers and public
+  health authorities, where deals are tendered and scoped per customer. It is recorded as
+  a measured zero, not as a gap we failed to find.
+paid_offerings_identified:
+- name: MACH platform licensing
+  url: https://mach.health/components
+  price: not published
+- name: Expert Services (professional services)
+  url: https://mach.health/expert-services
+  price: not published
+- name: Academy training courses
+  url: https://mach.health/academy
+  price: not published
+  note: >-
+    Named courses with stated durations are published — Orchestra Basics Training
+    (2 days), Orchestra Expert Training (2 days), "HL7 and Orchestra" (1 day),
+    "HL7 and Orchestra Extended" (2 days) — but no course fee is given.
+evidence:
+- url: https://x-tention.com/en/sitemap.xml
+  http_status: 200
+  detail: 57 URLs, none matching pricing, plans, packages or a rate card.
+- url: https://mach.health/sitemap.xml
+  http_status: 200
+  detail: 21 URLs, none matching pricing or plans.
+- url: https://mach.health/portal
+  http_status: 200
+  detail: '"Reach out to schedule a demo" in place of any price.'
+- url: https://x-tention.com/en/products
+  http_status: 200
+  detail: Four products listed, no price on any.

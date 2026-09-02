@@ -1,17 +1,41 @@
 aid: x-tention
 name: x-tention
-description: 'x-tention is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'x-tention Informationstechnologie GmbH is an Austrian healthcare IT company
+  headquartered in Wels, Upper Austria, that builds, integrates and operates information
+  systems for hospitals, health insurers and social-care providers across Austria, Germany,
+  Switzerland and the United Kingdom. Its products centre on healthcare interoperability:
+  MACH (Medical Application Connection Hub), a hybrid on-premises and cloud integration
+  platform built on the Orchestra health service bus it acquired with soffico GmbH, together
+  with MACH Orchestra, MACH Portal, MACH Gateway, MACH MPI, DICOM Routing, a File Streaming
+  Channel and HL7 FHIR Templates; an Interoperability Platform covering HL7 v2, IHE, FHIR
+  and openEHR; a Clinical Data Platform for the DACH region; a gematik-approved TI-Messenger
+  built with Famedly on the Matrix protocol; and cybersecurity services. x-tention publishes
+  no public developer portal, API reference or machine-readable API contract: technical
+  documentation lives inside the customer-authenticated MACH Portal, so its integration
+  surfaces are described in marketing and product literature only.'
 url: https://raw.githubusercontent.com/api-evangelist/x-tention/refs/heads/main/apis.yml
+image: https://x-tention.com/themes/custom/xttheme/logo.svg
 x-type: company
 x-source: harvest:openehr-coalition
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
+- Healthcare
+- Health IT
+- Interoperability
+- Integration
+- HL7
+- FHIR
+- openEHR
+- DICOM
+- IHE
+- Hospital Information Systems
+- Clinical Data
+- Austria
+- Cybersecurity
+- Secure Messaging
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,3 +45,72 @@ maintainers:
 common:
 - type: Website
   url: https://x-tention.com/en
+- type: Products
+  url: https://x-tention.com/en/products
+- type: Blog
+  url: https://x-tention.com/en/newsroom
+- type: BlogRSS
+  url: https://x-tention.com/en/rss.xml
+- type: Support
+  url: https://x-tention.com/en/contact
+- type: TermsOfService
+  url: https://x-tention.com/en/tcs
+- type: PrivacyPolicy
+  url: https://x-tention.com/en/privacy-policy
+- type: Imprint
+  url: https://x-tention.com/en/imprint
+- type: Customers
+  url: https://x-tention.com/en/success-stories
+- type: Training
+  url: https://mach.health/academy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/x-tention
+- type: Security
+  url: https://x-tention.com/en/responsible-disclosure
+- type: Compliance
+  url: https://x-tention.com/en/information-security-policy-clients
+- type: VulnerabilityDisclosure
+  url: security/x-tention-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/x-tention-trust-center.yml
+- type: DomainSecurity
+  url: security/x-tention-domain-security.yml
+- type: Conformance
+  url: conformance/x-tention-conformance.yml
+- type: Packages
+  url: packages/x-tention-packages.yml
+- type: Plans
+  url: plans/x-tention-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/x-tention-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/x-tention-lifecycle.yml
+- type: LLMsTxt
+  url: llms/x-tention-llms.txt
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    x-tention's only technical documentation lives inside the MACH Portal at
+    portal.mach.health, an Angular application that returns the same 62,604-byte
+    "Loading MACH Portal" login shell for every path including ones that cannot exist,
+    so an anonymous visitor reaches no reference, no spec and no endpoint list — the
+    public site markets HL7 v2, FHIR, openEHR, IHE and DICOM support across MACH and the
+    Interoperability Platform but publishes no contract for any of it.
+  evidence:
+  - url: https://portal.mach.health/
+    status: 200
+  - url: https://portal.mach.health/.apievangelist-control-probe-does-not-exist-9f2a
+    status: 200
+  - url: https://x-tention.com/openapi.json
+    status: 404
+  - url: https://mach.health/openapi.json
+    status: 404
+  - url: https://x-tention.com/llms.txt
+    status: 404
+  checked: '2026-09-02'

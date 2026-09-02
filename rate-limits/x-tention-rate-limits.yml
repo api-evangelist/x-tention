@@ -1,0 +1,45 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Full read of every public product, component and focus-topic page on x-tention.com and
+  mach.health, 2026-09-02.
+limit_count: 0
+limits: []
+headers: []
+status_code_on_exhaustion: null
+finding: >-
+  No rate limits are published, and none would be expected in the usual sense: x-tention
+  operates no public multi-tenant API against which a per-key or per-account quota could
+  apply. MACH and the Interoperability Platform are deployed on customer infrastructure,
+  so throughput is a function of the customer's own sizing rather than a vendor policy.
+  No RateLimit-*, X-RateLimit-* or Retry-After header is documented anywhere, and no 429
+  behaviour is described.
+throughput_claims:
+- claim: >-
+    Orchestra is documented as scaling to "the global healthcare corporation that
+    processes 100 million messages every day".
+  url: https://mach.health/orchestra
+  http_status: 200
+  kind: capacity claim, not a limit
+  note: >-
+    This is a scale statement about what the deployed software can handle, not a quota
+    the vendor enforces. It is recorded here so it is not mistaken for a published limit.
+- claim: >-
+    The File Streaming Channel exposes a configurable maximum transfer size and a
+    configurable number of parallel connections, both set by the operator.
+  url: https://mach.health/streaming-channel
+  http_status: 200
+  kind: operator-configurable tuning, not a vendor limit
+runtime_signal_available: false
+note: >-
+  Because there is no public endpoint, no limit could be observed live either. This is a
+  measured zero from the documentation, not an unattempted probe.
+evidence:
+- url: https://mach.health/orchestra
+  http_status: 200
+- url: https://mach.health/portal
+  http_status: 200
+- url: https://mach.health/streaming-channel
+  http_status: 200
+- url: https://x-tention.com/en/product/mach
+  http_status: 200

@@ -1,0 +1,327 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  x-tention and MACH product documentation pages (x-tention.com, mach.health), fetched
+  2026-09-02. No machine-readable contract exists for any x-tention product, so every
+  entry below is read from human-authored product documentation rather than from a spec.
+provider: x-tention
+contract_declared: false
+important: >-
+  READ THIS BEFORE SCORING. x-tention publishes no OpenAPI, AsyncAPI, GraphQL SDL, WSDL,
+  .proto or FHIR CapabilityStatement anywhere on its public surface. Everything recorded
+  here is a capability the provider documents in prose about software it ships to
+  customers, who then deploy and operate it themselves. Nothing here is a
+  contract-declared conformance and nothing here is a live endpoint we probed. The
+  entries are graded on how specifically the provider documents the standard, not on
+  whether we could verify an implementation.
+grading:
+  enumerated: >-
+    The provider's own documentation names concrete artifacts of the standard — message
+    types, event codes, resource names, service classes — not just the standard's name.
+  named: >-
+    The standard is listed as supported, with no enumeration of what is supported.
+conformance:
+- id: hl7-v2
+  label: HL7 Version 2.x messaging
+  conforms: true
+  grade: enumerated
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://mach.health/fhir-templates
+    http_status: 200
+    detail: >-
+      The MACH Orchestra HL7 FHIR Templates page enumerates supported HL7 v2 trigger
+      events by code — ADT A01–A16, A21–A29, A31–A33, A37, A38, A40, A42, A47, A50,
+      A52–A55, A60–A62; ORM O01; SIU S12–S22; ORU R01 and R30 — and names MLLP as the
+      receiving transport.
+    kind: product-documentation
+  note: >-
+    Orchestra also ships HL7 V2 MLLP Sender/Receiver as standard connectivity adapters
+    (https://mach.health/orchestra), and x-tention states support for both HL7 v2 and v3
+    on https://x-tention.com/en/product/mach.
+- id: fhir
+  label: HL7 FHIR
+  conforms: true
+  grade: enumerated
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://mach.health/fhir-templates
+    http_status: 200
+    detail: >-
+      The FHIR Templates modules are documented as producing named FHIR resources from
+      HL7 v2 input — Patient, Encounter, Practitioner, Location, Device, Condition,
+      Observation, AllergyIntolerance, ServiceRequest and Appointment — split across
+      Interaction, Administration, Order, Appointment and Observation modules.
+    kind: product-documentation
+  gaps:
+  - No FHIR version is stated (R4, R4B or R5).
+  - No CapabilityStatement, ImplementationGuide or FHIR endpoint is published.
+  - No profile or IG conformance is claimed (no US Core, no ISiK, no IPS, no national IG).
+- id: dicom
+  label: DICOM (DIMSE + DICOMweb)
+  conforms: true
+  grade: enumerated
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://mach.health/dicom-routing
+    http_status: 200
+    detail: >-
+      The DICOM Routing module page enumerates supported DIMSE service classes by
+      operation — Verification (C-ECHO), Storage (C-STORE), Storage Commitment
+      (N-ACTION, N-EVENT), Modality Performed Procedure Step (N-CREATE, N-SET),
+      Query/Retrieve (C-GET, C-MOVE, C-FIND) and Instance Availability Notification
+      (N-CREATE) — in both SCU and SCP roles, plus MPPS routing, a dose repository and
+      de-identification per the Basic Application Level Confidentiality Profile,
+      DICOM Part 15.
+    kind: product-documentation
+  note: >-
+    DICOMweb is named alongside DIMSE on https://x-tention.com/en/product/mach; the
+    DICOM Routing page details DIMSE only. A DICOM Conformance Statement — the standard's
+    own machine-checkable declaration — is not published.
+- id: openehr
+  label: openEHR
+  conforms: true
+  grade: named
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://x-tention.com/en/focus-topic/clinical-data-platform
+    http_status: 200
+    detail: >-
+      The Clinical Data Platform is described as built on international standards
+      "such as openEHR and FHIR", and openEHR is listed among the standards-based
+      interfaces of the Interoperability Platform
+      (https://x-tention.com/en/product/interoperability-platform) and among the
+      standards MACH supports (https://x-tention.com/en/product/mach).
+    kind: product-documentation
+  gaps:
+  - No archetypes, templates or operational templates are published.
+  - No openEHR REST API (ITS-REST) endpoint, base URL or conformance level is stated.
+  - No CKM contribution or archetype repository is linked.
+  note: >-
+    x-tention entered this catalogue through the openEHR coalition harvest. Its openEHR
+    posture is a stated platform capability delivered with partners — the site names a
+    partnership with Better (https://www.better.care/) on the MACH partner page — not a
+    published openEHR conformance of its own.
+- id: ihe
+  label: IHE profiles (XDS, ATNA)
+  conforms: true
+  grade: named
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://x-tention.com/en/product/mach
+    http_status: 200
+    detail: >-
+      MACH deployment options are documented as extensible with "IHE Connectors" and an
+      "IHE ATNA-compliant Record Repository"; IHE is listed among the standards-based
+      interfaces of the Interoperability Platform.
+    kind: product-documentation
+  gaps:
+  - No IHE integration profiles are enumerated beyond ATNA.
+  - No IHE Connectathon result, Integration Statement or Gazelle test report is linked.
+- id: c-cda
+  label: CDA / CCD / C-CDA documents
+  conforms: true
+  grade: named
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://x-tention.com/en/product/mach
+    http_status: 200
+    detail: >-
+      MACH message-transformation tooling is documented as supporting CDA, CCD and CCDA
+      alongside HL7 v2/v3 and FHIR.
+    kind: product-documentation
+- id: gematik-ti-messenger
+  label: gematik TI-Messenger (TI-M), Matrix-based
+  conforms: true
+  grade: enumerated
+  domain_standard: true
+  regime: health
+  jurisdiction: DE
+  evidence:
+    url: https://x-tention.com/en/product/clone-secure-messaging
+    http_status: 200
+    detail: >-
+      x-tention states it offers the gematik-approved TI-Messenger jointly with Famedly,
+      naming the legal basis (SGB V §312 for healthcare providers, §342 for payers and
+      insured individuals), the underlying open-source Matrix protocol, and the three
+      gematik product variants with their go-live dates — TI-M Pro (2024), TI-M ePA
+      (July 2025) and TI-M Connect (date to be announced).
+    kind: product-documentation
+  note: >-
+    "gematik-approved" is a formal German certification. The approval is asserted on
+    x-tention's page; no gematik registry entry, approval number or certificate is
+    linked from it, and the approved product is a joint offering with Famedly.
+- id: astm
+  label: ASTM E1381/E1394 laboratory instrument protocol
+  conforms: true
+  grade: named
+  domain_standard: true
+  regime: health
+  evidence:
+    url: https://mach.health/orchestra
+    http_status: 200
+    detail: >-
+      ASTM Server/Client is listed among Orchestra's optional connectivity modules, and
+      "ASTM Channels for connecting laboratory equipment" is named as a MACH deployment
+      add-on on https://x-tention.com/en/product/mach.
+    kind: product-documentation
+- id: edifact
+  label: UN/EDIFACT
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://x-tention.com/en/product/mach
+    http_status: 200
+    detail: EDIFACT is listed among the message formats MACH transformation tooling supports.
+    kind: product-documentation
+- id: xdt
+  label: xDT (German medical practice data exchange)
+  conforms: true
+  grade: named
+  domain_standard: true
+  regime: health
+  jurisdiction: DE
+  evidence:
+    url: https://x-tention.com/en/product/mach
+    http_status: 200
+    detail: XDT is listed among the supported message formats.
+    kind: product-documentation
+- id: bpmn
+  label: BPMN 2.0 process modelling
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://mach.health/orchestra
+    http_status: 200
+    detail: >-
+      Orchestra scenarios are modelled in the Designer as "graphical flowcharts using
+      BPMN (Business Process Model and Notation)".
+    kind: product-documentation
+- id: soap
+  label: SOAP / WS-* web services
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://mach.health/orchestra
+    http_status: 200
+    detail: SOAP Client/Server is listed among Orchestra's standard connectivity adapters.
+    kind: product-documentation
+  note: >-
+    No WSDL is published. https://x-tention.com/?wsdl, https://mach.health/?wsdl and
+    https://portal.mach.health/?wsdl all return the ordinary HTML page, not a contract.
+- id: rest
+  label: REST over HTTP
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://mach.health/orchestra
+    http_status: 200
+    detail: >-
+      REST Client/Server, HTTP GET Receiver, HTTP POST Receiver and HTTP Caller adapters
+      are listed among Orchestra's standard connectivity adapters. These are integration
+      adapters a customer configures, not an x-tention-hosted API.
+    kind: product-documentation
+- id: mtls
+  label: Mutual TLS
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://mach.health/streaming-channel
+    http_status: 200
+    detail: >-
+      The File Streaming Channel documents that transport connections "can be configured
+      for MTLS mutual authentication of the connection endpoints", and MACH names
+      TLS certificate-based exchange among its communication technologies.
+    kind: product-documentation
+- id: iso-27001
+  label: ISO/IEC 27001 Information Security Management
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://x-tention.com/en/information-security-policy-clients
+    http_status: 200
+    detail: ISMS certified to ISO/IEC 27001 since early 2011.
+    kind: compliance-policy-page
+- id: iso-27701
+  label: ISO/IEC 27701 Privacy Information Management
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://x-tention.com/en/information-security-policy-clients
+    http_status: 200
+    detail: DPMS certified since late 2018, and to ISO/IEC 27701 since 2021.
+    kind: compliance-policy-page
+- id: iso-9001
+  label: ISO 9001 Quality Management
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://x-tention.com/en/information-security-policy-clients
+    http_status: 200
+    detail: QMS certified to ISO 9001 since 2019.
+    kind: compliance-policy-page
+- id: gdpr
+  label: EU General Data Protection Regulation
+  conforms: true
+  grade: named
+  domain_standard: false
+  evidence:
+    url: https://x-tention.com/en/privacy-policy
+    http_status: 200
+    detail: >-
+      GDPR compliance is the stated overarching data-protection objective, with explicit
+      reference to the Art. 5 principles.
+    kind: compliance-policy-page
+not_conformant:
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No OAuth 2.0 authorization server is published. /.well-known/oauth-authorization-server
+    returned 404 on x-tention.com and mach.health, and portal.mach.health answers every
+    path with the same 62,604-byte Angular shell, so its 200 is not a document.
+- id: oidc
+  conforms: false
+  evidence: >-
+    No OpenID Provider metadata. /.well-known/openid-configuration returned 404 on
+    x-tention.com and mach.health. The MACH Portal page states it supports SSO
+    (https://mach.health/portal), but publishes no discovery document.
+- id: rfc9457
+  conforms: false
+  evidence: No error format is published because no API contract is published.
+- id: rfc9116
+  conforms: false
+  evidence: >-
+    No security.txt. https://x-tention.com/.well-known/security.txt 404,
+    https://mach.health/.well-known/security.txt 404. A responsible-disclosure policy
+    exists as HTML only (see security/x-tention-vulnerability-disclosure.yml).
+- id: rfc8594
+  conforms: false
+  evidence: No Sunset/Deprecation header policy is published.
+- id: fhir-bulk-data
+  conforms: false
+  evidence: Not mentioned anywhere on the public surface.
+- id: smart-on-fhir
+  conforms: false
+  evidence: Not mentioned anywhere on the public surface.
+- id: us-core
+  conforms: false
+  evidence: >-
+    Not claimed, and not expected — x-tention serves Austria, Germany, Switzerland and
+    the UK, not the US market that US Core and USCDI govern.
+- id: cds-hooks
+  conforms: false
+  evidence: Not mentioned anywhere on the public surface.

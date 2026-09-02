@@ -1,0 +1,85 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Registry searches against npm, PyPI, NuGet, pkg.go.dev, RubyGems, Packagist and
+  crates.io, plus a GitHub user/org search and a read of every product and
+  developer-facing page on x-tention.com and mach.health, run 2026-09-02. Maven Central
+  did not respond and is recorded below as unchecked.
+package_count: 0
+official_sdk_count: 0
+packages: []
+finding: >-
+  x-tention publishes no client libraries, SDKs or packages in any public registry, and
+  none are referenced from its own site. This is consistent with its delivery model: MACH
+  and the Interoperability Platform are licensed products a customer deploys and operates,
+  integrated through configured adapters (HL7 v2 MLLP, DICOM DIMSE, REST/SOAP clients,
+  file and database channels) rather than through a vendor SDK, and binaries are
+  distributed through the authenticated MACH Portal, which the product page describes as
+  offering "download of binary sources of new MACH versions as well as updates and
+  distribution within the environment".
+distribution:
+  channel: authenticated MACH Portal
+  url: https://portal.mach.health/
+  public: false
+  note: >-
+    Product binaries and updates are distributed inside the customer console, so there is
+    no public artifact whose version or publication date could be read. Package currency
+    is therefore not merely null-with-a-note but structurally unavailable — there is no
+    registry entry for a consumer to check either.
+registries_checked:
+- registry: npm
+  query: x-tention, xtention, mach-health, orchestra-soffico
+  first_party_hits: 0
+  note: >-
+    Text searches return only unrelated packages. There is no @x-tention or @mach scope.
+- registry: pypi
+  query: x-tention
+  http_status: 404
+  first_party_hits: 0
+- registry: maven-central
+  query: x-tention OR soffico
+  first_party_hits: null
+  status: <no response>
+  note: >-
+    search.maven.org did not answer within 15 seconds. Probed once and abandoned rather
+    than retried, per the pipeline's probe-bounding rule. Recorded as unchecked, not as
+    a zero. Orchestra is a Java platform, so Maven is the one registry where a
+    first-party artifact would be most plausible and this gap is worth closing on a
+    later pass.
+- registry: nuget
+  endpoint: https://azuresearch-usnc.nuget.org/query?q=x-tention
+  total_hits: 0
+  first_party_hits: 0
+- registry: rubygems
+  endpoint: https://rubygems.org/api/v1/search.json?query=x-tention
+  total_hits: 0
+  first_party_hits: 0
+- registry: packagist
+  endpoint: https://packagist.org/search.json?q=x-tention
+  total_hits: 1
+  first_party_hits: 0
+  note: The single hit is mecha-cms/x.mention, an unrelated CMS extension.
+- registry: crates.io
+  endpoint: https://crates.io/api/v1/crates?q=x-tention
+  total_hits: 0
+  first_party_hits: 0
+- registry: pkg.go.dev
+  endpoint: https://proxy.golang.org/x-tention.com/@v/list
+  http_status: 404
+  first_party_hits: 0
+source_control:
+  github_organization: null
+  note: >-
+    No first-party GitHub organization exists. A GitHub user search for "x-tention"
+    returns two accounts — github.com/x-tention (created 2025-10-28, 0 public
+    repositories, no name, company, bio or blog) and github.com/x-tentiongit (created
+    2025-12-17, 2 repositories named repo1 and repo2, both undescribed). Neither shows
+    any evidence of being operated by the company, and neither is linked from
+    x-tention.com or mach.health, so neither is recorded as a company property.
+  evidence:
+  - url: https://api.github.com/users/x-tention
+    http_status: 200
+    public_repos: 0
+  - url: https://api.github.com/users/x-tentiongit
+    http_status: 200
+    public_repos: 2

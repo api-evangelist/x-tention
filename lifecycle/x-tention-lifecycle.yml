@@ -1,0 +1,79 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Full read of x-tention.com (57 sitemap URLs) and mach.health (21 sitemap URLs), plus
+  DNS probes for a status subdomain, 2026-09-02.
+versioning:
+  scheme: not published
+  current_version: null
+  note: >-
+    No API version scheme exists because no API contract is published. Product versions
+    exist — the MACH Portal is documented as handling "download of binary sources of new
+    MACH versions as well as updates and distribution within the environment" — but
+    version numbers, a release cadence and a support window are all inside the
+    authenticated portal, not on the public site.
+deprecation_policy:
+  published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation or sunset policy of any kind, for products or for interfaces. Nothing
+    states how long a MACH or Orchestra release is supported, or how a breaking change to
+    an adapter or channel is announced.
+changelog:
+  published: false
+  url: null
+  note: >-
+    No release notes, changelog or "what's new" page on either host. The closest public
+    signal is the newsroom (https://x-tention.com/en/newsroom, RSS at
+    https://x-tention.com/en/rss.xml), which carries corporate and customer-win news —
+    contract awards, partnerships, events — not product releases.
+status_page:
+  published: false
+  url: null
+  probes:
+  - url: https://status.x-tention.com/
+    result: DNS does not resolve (curl error 6, could not resolve host)
+  - url: https://status.mach.health/
+    result: HTTP 404 — the hostname resolves but serves no status page
+  note: >-
+    No status page, uptime history or incident feed. Expected for a vendor whose software
+    runs on customer infrastructure rather than as a hosted service — but portal.mach.health
+    IS a hosted multi-tenant console, and it has no public status surface either.
+sla:
+  published: false
+  note: >-
+    No SLA, uptime commitment or support-tier definition is published. The Terms and
+    Conditions page (https://x-tention.com/en/tcs) is a general commercial document, not
+    a service-level schedule. The only published response commitment anywhere on the
+    site is in the Responsible Disclosure policy — acknowledgement of a vulnerability
+    report within 48 hours.
+support:
+  channel: contact form and named individuals
+  url: https://x-tention.com/en/contact
+  note: >-
+    Support is a sales-and-account-management motion: the contact page lists named
+    staff with direct phone numbers and obfuscated email addresses per region. There is
+    no ticketing portal, community forum or developer support channel on the public
+    surface.
+training:
+  published: true
+  url: https://mach.health/academy
+  http_status: 200
+  note: >-
+    A published training catalogue is the one lifecycle-adjacent surface x-tention does
+    document publicly: four named Orchestra and HL7 courses with stated durations and
+    course contents, aimed at users, developers and strategists.
+deprecated_operations: []
+evidence:
+- url: https://x-tention.com/en/sitemap.xml
+  http_status: 200
+- url: https://mach.health/sitemap.xml
+  http_status: 200
+- url: https://x-tention.com/en/rss.xml
+  http_status: 200
+- url: https://x-tention.com/en/tcs
+  http_status: 200
+- url: https://mach.health/academy
+  http_status: 200
