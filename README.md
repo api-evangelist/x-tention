@@ -64,5 +64,99 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-x-tention is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition) and added to the network as a stub for full-pipeline profiling.
-- https://x-tention.com/en
+x-tention Informationstechnologie GmbH is an Austrian healthcare IT company headquartered in Wels, Upper Austria, that builds, integrates and operates information systems for hospitals, health insurers and social-care providers across Austria, Germany, Switzerland and the United Kingdom. Its products centre on healthcare interoperability: MACH (Medical Application Connection Hub), a hybrid on-premises and cloud integration platform built on the Orchestra health service bus it acquired with soffico GmbH, together with MACH Orchestra, MACH Portal, MACH Gateway, MACH MPI, DICOM Routing, a File Streaming Channel and HL7 FHIR Templates; an Interoperability Platform covering HL7 v2, IHE, FHIR and openEHR; a Clinical Data Platform for the DACH region; a gematik-approved TI-Messenger built with Famedly on the Matrix protocol; and cybersecurity services. x-tention publishes no public developer portal, API reference or machine-readable API contract: technical documentation lives inside the customer-authenticated MACH Portal, so its integration surfaces are described in marketing and product literature only.
+
+**Areas:** Company · Healthcare · Health IT · Interoperability · Integration · HL7 · FHIR · openEHR · DICOM · IHE · Hospital Information Systems · Clinical Data
+
+## x-tention on APIs.io
+
+Everything profiled for x-tention is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/x-tention/](https://apis.io/providers/x-tention/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [X Tention Domain Security](https://apis.io/security/x-tention/x-tention-domain-security/)
+- [X Tention Trust Center](https://apis.io/security/x-tention/x-tention-trust-center/)
+- [X Tention Vulnerability Disclosure](https://apis.io/security/x-tention/x-tention-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [X Tention Plans Pricing](https://apis.io/plans/x-tention/x-tention-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [X Tention Rate Limits](https://apis.io/rate-limits/x-tention/x-tention-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://x-tention.com/en)
+- [Support](https://x-tention.com/en/contact)
+- [Blog](https://x-tention.com/en/newsroom)
+- [Security](https://x-tention.com/en/responsible-disclosure)
+- [Compliance](https://x-tention.com/en/information-security-policy-clients)
+- [Terms of service](https://x-tention.com/en/tcs)
+- [Privacy policy](https://x-tention.com/en/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 19.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 36.8 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 28.1** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/x-tention/](https://apis.io/providers/x-tention/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for x-tention: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/x-tention/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
